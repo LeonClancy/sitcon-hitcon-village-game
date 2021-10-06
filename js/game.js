@@ -97,8 +97,8 @@ var CardGame = function (targetId) {
                     }
                     setTimeout(function () {
                         startCard();
-                        alertify.confirm(' 恭喜完成闖關').set({
-                            title: '恭喜',
+                        alertify.confirm('快至攤位兌換獎品吧！').set({
+                            title: '恭喜完成闖關',
                             labels: {ok: '重新開始', cancel: '查看解析'},
                             closable: false,
                             onok: function (event) {
@@ -175,7 +175,7 @@ var CardGame = function (targetId) {
 
     };
 
-    alertify.alert('Hi!', '<div>請根據卡牌上的題目找到相對應的答案!</br>圖片解釋：</br><img style="height:20vh;" src="images/question.png">  <img style="height:20vh;" src="images/ans.png">  <img style="height:20vh;" src="images/backinfo.png"></div>').set({
+    alertify.alert('駭，你好！', '<div>請根據卡牌上的題目找到相對應的答案！</br>卡牌說明：</br><img style="height:20vh;" src="images/question.png">  <img style="height:20vh;" src="images/ans.png">  <img style="height:20vh;" src="images/backinfo.png"></div>').set({
         label: '開始',
         closable: false,
         onok: function (closeEvent) {
