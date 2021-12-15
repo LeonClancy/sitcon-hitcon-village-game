@@ -17,7 +17,7 @@ var CardGame = function (targetId) {
         setTimeout(function () {
             clickable.push(id);
         }, 500);
-        cards[id].firstChild.src = "//fcu-d0449763.github.io/sitcon_camp/images/back.png";
+        cards[id].firstChild.src = "images/back.png";
         with (cards[id].style) {
             WebkitTransform = MozTransform = OTransform = msTransform = "scale(1.0) rotate(0deg)";
         }
@@ -68,7 +68,7 @@ var CardGame = function (targetId) {
         if (id === card1) return;
         if (cards[id].matched) return;
         cards[id].className = "card";
-        cards[id].firstChild.src = "//fcu-d0449763.github.io/sitcon_camp/images/" + card_value[id] + ".png";
+        cards[id].firstChild.src = "images/" + card_value[id] + ".png";
         //點擊後放大並旋轉-5度
         with (cards[id].style) {
             WebkitTransform = MozTransform = OTransform = msTransform = "scale(1.2) rotate(-5deg)";
@@ -155,7 +155,7 @@ var CardGame = function (targetId) {
 
         // template for card
         var card = document.createElement("div");
-        card.innerHTML = "<img src=\"//fcu-d0449763.github.io/sitcon_camp/images/back.png\">";
+        card.innerHTML = "<img src=\"images/back.png\">";
         card.className = "card";
 
         for (var i = 0; i < 16; i++) {
