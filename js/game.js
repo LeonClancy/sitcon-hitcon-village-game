@@ -22,9 +22,8 @@ const config = {
 }
 
 const gameEndAlert = {
-    content: "content",
-    title: "This is title",
-    labels: {ok: '重新開始'}
+    content: "憑此畫面可到 SITCON 攤位領取小禮物，數量有限哦～",
+    title: "闖關成功！",
 }; 
 
 var CardGame = function (targetId) {
