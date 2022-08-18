@@ -3,22 +3,22 @@
 
 // TODO
 const config = {
-    "1C": "1C",
-    "2C": "2C",
-    "3C": "3C",
-    "4C": "4C",
-    "5C": "5C",
-    "6C": "6C",
-    "7C": "7C",
-    "8C": "8C",
-    "1H": "1H",
-    "2H": "2H",
-    "3H": "3H",
-    "4H": "4H",
-    "5H": "5H",
-    "6H": "6H",
-    "7H": "7H",
-    "8H": "8H"
+    "1C": "常見遊戲外掛製作手法？",
+    "2C": "阻礙別人追蹤記憶體位置的手法？",
+    "3C": "常見的 HTTP status code？",
+    "4C": "什麼是 CTF？",
+    "5C": "Domain 由 CDN 託管的好處？",
+    "6C": "掃瞄子網域與服務端口的工具？",
+    "7C": "負責解析網域名稱的服務是？",
+    "8C": "這個攤位是什麼組織？",
+    "1H": "DLL Injection",
+    "2H": "Address Space Layout Randomization",
+    "3H": "200<br>404<br>500",
+    "4H": "Capture The Flag",
+    "5H": "隱藏真實 IP",
+    "6H": "dnsdumpster",
+    "7H": "DNS",
+    "8H": "SITCON<br><span style=\"font-size:.8em;\">學生計算機年會</span>"
 }
 
 const gameEndAlert = {
@@ -99,10 +99,10 @@ var CardGame = function (targetId) {
         var cardContent;
         if (card_value[id].endsWith('C')){
             cards[id].firstChild.src = "images/q.png";
-            cardContent = $(`<span class="card-content" style="color:black;">${card_value[id]}</span>`);
+            cardContent = $(`<span class="card-content" style="color:black;">${config[card_value[id]]}</span>`);
         } else {
             cards[id].firstChild.src = "images/a.png";
-            cardContent = $(`<span class="card-content" style="color:white;">${card_value[id]}</span>`);
+            cardContent = $(`<span class="card-content" style="color:white;">${config[card_value[id]]}</span>`);
         }
         $(cards[id]).append(cardContent);
         //點擊後放大並旋轉-5度
