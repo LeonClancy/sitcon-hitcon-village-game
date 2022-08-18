@@ -23,6 +23,16 @@ body {
     -webkit-transition-property: left, top, -webkit-transform;
     -webkit-transition-duration: 0.5s;
     -webkit-transition-timing-function: ease-out, ease-out, ease-in-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card > .card-content {
+    position: absolute;
+    color: white;
+
 }
 
 .card img {

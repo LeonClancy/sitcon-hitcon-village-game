@@ -1,10 +1,36 @@
 // Original JavaScript code by Chirp Internet: www.chirp.com.au
 // Please acknowledge use of this code by including this header.
+
+// TODO
+const config = {
+    "1C": "1C",
+    "2C": "2C",
+    "3C": "3C",
+    "4C": "4C",
+    "5C": "5C",
+    "6C": "6C",
+    "7C": "7C",
+    "8C": "8C",
+    "1H": "1H",
+    "2H": "2H",
+    "3H": "3H",
+    "4H": "4H",
+    "5H": "5H",
+    "6H": "6H",
+    "7H": "7H",
+    "8H": "8H"
+}
+
+const gameEndAlert = {
+    content: "content",
+    title: "This is title",
+    labels: {ok: '重新開始'}
+}; 
+
 var CardGame = function (targetId) {
     // private variables
     var cards = [];
-    var card_value = ["1C", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "1H", "2H", "3H", "4H", "5H", "6H", "7H", "8H"];
-
+    const card_value = Object.keys(config);
     var started = false;
     var matches_found = 0;
     var card1 = false,
@@ -17,7 +43,8 @@ var CardGame = function (targetId) {
         setTimeout(function () {
             clickable.push(id);
         }, 500);
-        cards[id].firstChild.src = "images/back.png";
+        cards[id].firstChild.src = "images/backinfo.png";
+        $(cards[id]).children('.card-content').remove();
         with (cards[id].style) {
             WebkitTransform = MozTransform = OTransform = msTransform = "scale(1.0) rotate(0deg)";
         }
@@ -68,7 +95,16 @@ var CardGame = function (targetId) {
         if (id === card1) return;
         if (cards[id].matched) return;
         cards[id].className = "card";
-        cards[id].firstChild.src = "images/" + card_value[id] + ".png";
+
+        var cardContent;
+        if (card_value[id].endsWith('C')){
+            cards[id].firstChild.src = "images/q.png";
+            cardContent = $(`<span class="card-content" style="color:black;">${card_value[id]}</span>`);
+        } else {
+            cards[id].firstChild.src = "images/a.png";
+            cardContent = $(`<span class="card-content" style="color:white;">${card_value[id]}</span>`);
+        }
+        $(cards[id]).append(cardContent);
         //點擊後放大並旋轉-5度
         with (cards[id].style) {
             WebkitTransform = MozTransform = OTransform = msTransform = "scale(1.2) rotate(-5deg)";
@@ -97,17 +133,14 @@ var CardGame = function (targetId) {
                     }
                     setTimeout(function () {
                         startCard();
-                        alertify.confirm('快至攤位兌換獎品吧！').set({
-                            title: '恭喜完成闖關',
-                            labels: {ok: '重新開始', cancel: '查看解析'},
+                        // TODO
+                        alertify.confirm(gameEndAlert.content).set({
+                            title:  gameEndAlert.title,
+                            labels: gameEndAlert.labels,
                             closable: false,
                             onok: function (event) {
                                 deal();
-                            },
-                            oncancel: function (event) {
-                                window.location = './explain.html';
                             }
-
                         });
                     }, 16 * 100);
                 }
@@ -155,7 +188,7 @@ var CardGame = function (targetId) {
 
         // template for card
         var card = document.createElement("div");
-        card.innerHTML = "<img src=\"images/back.png\">";
+        card.innerHTML = "<img src=\"images/backinfo.png\">";
         card.className = "card";
 
         for (var i = 0; i < 16; i++) {
