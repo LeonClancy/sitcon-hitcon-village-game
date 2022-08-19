@@ -22,7 +22,7 @@ const config = {
 }
 
 const gameEndAlert = {
-    content: "憑此畫面可到 SITCON 攤位領取小禮物，數量有限哦～",
+    content: "憑此畫面可到 SITCON 攤位領取小禮物，數量有限哦～<br>此網頁遊戲由逢甲黑客社提供修改，也歡迎到隔壁玩遊戲哦。",
     title: "闖關成功！",
 }; 
 
